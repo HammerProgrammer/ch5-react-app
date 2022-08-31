@@ -25,6 +25,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import Dimmer from "./components/Dimmer";
 import IOSSwitch from "./components/IOSSwitch";
+import Onoff from "./components/Onoff";
 
 const darkTheme = createTheme({
   palette: {
@@ -58,7 +59,7 @@ function App() {
                 >
                   Dimmers
                 </Typography>
-                <IOSSwitch sx={{ m: 1 }} defaultChecked />
+                <Onoff subscribeId="200" publishId="200" />
               </Stack>
               <Stack
                 sx={{ height: 300 }}
