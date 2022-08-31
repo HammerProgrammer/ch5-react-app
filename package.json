@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@crestron/ch5-crcomlib": "^1.2.0",
+    "@crestron/ch5-utilities-cli": "^0.1.52",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.1",
+    "@norgate-av/crestron-ch5-helper": "^1.2.0",
+    "@norgate-av/react-crestron-ch5-hooks": "^1.0.0",
+    "@popperjs/core": "^2.11.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "bootstrap": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -14,8 +23,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:archive": "ch5-cli archive -p ch5-react -P samplesource=ch5-react -d build -o dist",
+    "deploy": "ch5-cli deploy -p -H 192.168.1.101 -t touchscreen dist/ch5-react.ch5z",
+    "deploy:one-step": "yarn run build && yarn run build:archive && yarn run deploy",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "patch-package"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "patch-package": "^6.4.7",
+    "sass": "^1.54.4"
   }
 }
